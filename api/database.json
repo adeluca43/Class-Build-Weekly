@@ -1,0 +1,75 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Nicole Smith",
+      "email": "nicole@gmail.com",
+      "phone": "123-456-7890",
+      "beltRank": "Black",
+      "payRate": 30
+    },
+    {
+      "id": 2,
+      "name": "Tina Fey",
+      "email": "Tina@gmail.com",
+      "phone": "987-654-3210",
+      "beltRank": "Brown",
+      "payRate": 25
+    },
+    {
+      "id": 3,
+      "name": "Will Ferrell",
+      "email": "Will@gmail.com",
+      "phone": "555-123-4567",
+      "beltRank": "Blue",
+      "payRate": 20
+    },
+    {
+      "id": 4,
+      "name": "Johnny Cash",
+      "email": "Johnny@gmail.com",
+      "phone": "123-456-7890",
+      "beltRank": "Purple",
+      "payRate": 25
+    },
+    {
+      "id": 5,
+      "name": "Charlotte Web",
+      "email": "Charlotte@gmail.com",
+      "phone": "987-654-3210",
+      "beltRank": "Purple",
+      "payRate": 25
+    },
+    {
+      "id": 6,
+      "name": "Killer Hunt",
+      "email": "Hunt@gmail.com",
+      "phone": "555-123-4567",
+      "beltRank": "Blue",
+      "payRate": 15
+    }
+  ],
+  "classTypes": [
+    { "id": 1, "type": "Kids BJJ" },
+    { "id": 2, "type": "Teens BJJ" },
+    { "id": 3, "type": "Adult BJJ" },
+    { "id": 4, "type": "Womens BJJ" },
+    { "id": 5, "type": "Judo" },
+    { "id": 6, "type": "Striking" },
+    { "id": 7, "type": "Boxing" },
+    { "id": 8, "type": "Cardio" }
+  ],
+  "shifts": [
+    { "id": 1, "timeSlot": "6-7 AM" },
+    { "id": 2, "timeSlot": "9-10 AM" },
+    { "id": 3, "timeSlot": "11:30 AM - 12:30 PM" },
+    { "id": 4, "timeSlot": "12-1 PM" },
+    { "id": 5, "timeSlot": "4:15-4:45 PM" },
+    { "id": 6, "timeSlot": "4:45-5:35 PM" },
+    { "id": 7, "timeSlot": "5:35-6:20 PM" },
+    { "id": 8, "timeSlot": "6:30-7:30 PM" },
+    { "id": 9, "timeSlot": "7:30-9 PM" }
+  ],
+   "classes": []
+
+}
