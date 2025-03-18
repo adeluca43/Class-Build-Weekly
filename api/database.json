@@ -47,7 +47,8 @@
       "phone": "987-654-3210",
       "email": "Charlotte@gmail.com",
       "payRate": 25,
-      "beltRank": "Purple"
+      "beltRank": "Purple",
+      "password": "pass5"
     },
     {
       "id": 6,
@@ -56,7 +57,8 @@
       "phone": "555-123-555",
       "email": "Hunt@gmail.com",
       "payRate": 15,
-      "beltRank": "Blue"
+      "beltRank": "Blue",
+      "password": "pass6"
     }
   ],
   "classTypes": [
@@ -131,5 +133,36 @@
       "timeSlot": "7:30-9:00 PM"
     }
   ],
-  "classes": []
+  "classes": [
+    {
+      "className": "webb first class",
+      "description": "helped with kids",
+      "classType": "Kids BJJ",
+      "dayOfWeek": "Thursday",
+      "timeSlot": "4:45-5:35 PM",
+      "employeeId": 5,
+      "employeeName": "Charlotte Webb",
+      "id": 4
+    },
+    {
+      "className": "i taught this one",
+      "description": "my first time teaching",
+      "classType": "Adult BJJ",
+      "dayOfWeek": "Friday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 5,
+      "employeeName": "Charlotte Webb",
+      "id": 5
+    },
+    {
+      "className": "test edit",
+      "description": "edit this",
+      "classType": "Kids BJJ",
+      "dayOfWeek": "Monday",
+      "timeSlot": "6:00-7:00 AM",
+      "employeeId": 6,
+      "employeeName": "Killer Hunt",
+      "id": 6
+    }
+  ]
 }
