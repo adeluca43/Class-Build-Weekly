@@ -42,13 +42,12 @@
     },
     {
       "id": 5,
-      "name": "Charlotte Web",
-      "email": "Charlotte@gmail.com",
-      "phone": "987-654-3210",
-      "beltRank": "Purple",
-      "payRate": 25,
+      "name": "Charlotte Webb",
       "address": "987 back st Spring Hill TN 37174",
-      "password": "pass5"
+      "phone": "987-654-3210",
+      "email": "Charlotte@gmail.com",
+      "payRate": 25,
+      "beltRank": "Purple"
     },
     {
       "id": 6,
