@@ -4,6 +4,8 @@ import { EmployeeProfile } from "../components/Employees/EmployeeProfile";
 import { Login } from "../components/auth/Login";
 import { useState,useEffect } from "react";
 import { NavBar } from "../nav/NavBar";
+import { EditEmployeeProfile } from "../components/Employees/EditEmployeeProfile";
+//import { CreateNewClass } from "../components/Classes/CreateNewClass";
 
 export const ApplicationView = () => {
 const [currentUser, setCurrentUser] = useState ([])
@@ -23,7 +25,8 @@ const [currentUser, setCurrentUser] = useState ([])
     <Routes>
       <Route path="/" element={<h1>All Classes</h1>} />
       <Route path="/profile" element={<EmployeeProfile/>} />
-      <Route path="/new-class" element={<h1>New Class</h1>} />
+      <Route path="/profile/edit" element={<EditEmployeeProfile />} />
+      <Route path="/new-class" element={<h1>new class</h1>} />
       <Route path="/pay-summary" element={<h1>Pay Summary</h1>} />
       <Route path="/curriculum" element={<h1>Curriculum </h1>} />
       <Route path="/login" element={<Login/>} />

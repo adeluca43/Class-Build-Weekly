@@ -7,50 +7,56 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents form from refreshing the page
 
-// validate the password here
-if (!password) {
-   window.alert("Please enter your password");
-     return;
-   }
+    // Validate that both email and password are entered
+    if (!email || !password) {
+      window.alert("Please enter both email and password.");
+      return;
+    }
 
-
+    // Fetch user by email and validate login
     getEmployeeByEmail(email).then((foundUsers) => {
       if (foundUsers.length === 1) {
         const user = foundUsers[0];
 
- //  verify the password here
+        // Verify the password
         if (user.password !== password) {
-        window.alert("Invalid password");
-         return;
+          window.alert("Invalid password");
+          return;
         }
 
-
-
-
-        // Store user details in localStorage
+        // Ensure ID is stored correctly
         localStorage.setItem(
           "employee_user",
           JSON.stringify({
-            id: user.id,
+            id: user.id,  // Store ID properly
             name: user.name,
+            address: user.address || "",
+            phone: user.phone || "",
             email: user.email,
+            payRate: user.payRate || "",
+            beltRank: user.beltRank || "",
           })
         );
 
-        navigate("/"); // Redirect to homepage
+        navigate("/profile"); // Redirect to profile page after login
       } else {
-        window.alert("Invalid login"); // Show alert if email isn't found
+        window.alert("Invalid login credentials");
       }
+    }).catch(error => {
+      console.error("Error during login:", error);
+      window.alert("An error occurred during login. Please try again.");
     });
   };
+
 
   return (
     <main className="auth-container">
       <section>
-        <form className="auth-form" onSubmit={handleLogin}>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <h1 className="header">Employee Class Tracker</h1>
           <fieldset className="auth-fieldset">
             <div>
