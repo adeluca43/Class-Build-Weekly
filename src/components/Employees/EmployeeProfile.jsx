@@ -29,6 +29,16 @@ export const EmployeeProfile = () => {
         <p><strong>Address:</strong> {employee.address}</p>
         <p><strong>Belt Rank:</strong> {employee.beltRank}</p>
         <p><strong>Pay Rate:</strong> ${employee.payRate} per shift</p>
+         {/* Show Edit button only if the logged-in user is viewing their own profile */}
+      {loggedInUser.id === employee.id && (
+        <button 
+        className="edit-profile-button" 
+        onClick={() => navigate("/profile/edit")}
+      >
+        Edit Profile
+      </button>
+      
+      )}
       </div>
     );
 };

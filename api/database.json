@@ -53,35 +53,84 @@
     {
       "id": 6,
       "name": "Killer Hunt",
+      "address": "234 5th st Spring Hill TN 37174",
+      "phone": "555-123-555",
       "email": "Hunt@gmail.com",
-      "phone": "555-123-4567",
-      "beltRank": "Blue",
       "payRate": 15,
-      "address": "234 second st Spring Hill TN 37174",
-      "password": "pass6"
+      "beltRank": "Blue"
     }
   ],
   "classTypes": [
-    { "id": 1, "type": "Kids BJJ" },
-    { "id": 2, "type": "Teens BJJ" },
-    { "id": 3, "type": "Adult BJJ" },
-    { "id": 4, "type": "Womens BJJ" },
-    { "id": 5, "type": "Judo" },
-    { "id": 6, "type": "Striking" },
-    { "id": 7, "type": "Boxing" },
-    { "id": 8, "type": "Cardio" }
+    {
+      "id": 1,
+      "type": "Kids BJJ"
+    },
+    {
+      "id": 2,
+      "type": "Teens BJJ"
+    },
+    {
+      "id": 3,
+      "type": "Adult BJJ"
+    },
+    {
+      "id": 4,
+      "type": "Women's BJJ"
+    },
+    {
+      "id": 5,
+      "type": "Judo"
+    },
+    {
+      "id": 6,
+      "type": "Striking"
+    },
+    {
+      "id": 7,
+      "type": "Boxing"
+    },
+    {
+      "id": 8,
+      "type": "Cardio"
+    }
   ],
   "shifts": [
-    { "id": 1, "timeSlot": "6-7 AM" },
-    { "id": 2, "timeSlot": "9-10 AM" },
-    { "id": 3, "timeSlot": "11:30 AM - 12:30 PM" },
-    { "id": 4, "timeSlot": "12-1 PM" },
-    { "id": 5, "timeSlot": "4:15-4:45 PM" },
-    { "id": 6, "timeSlot": "4:45-5:35 PM" },
-    { "id": 7, "timeSlot": "5:35-6:20 PM" },
-    { "id": 8, "timeSlot": "6:30-7:30 PM" },
-    { "id": 9, "timeSlot": "7:30-9 PM" }
+    {
+      "id": 1,
+      "timeSlot": "6:00-7:00 AM"
+    },
+    {
+      "id": 2,
+      "timeSlot": "9:00-10:00 AM"
+    },
+    {
+      "id": 3,
+      "timeSlot": "11:30 AM - 12:30 PM"
+    },
+    {
+      "id": 4,
+      "timeSlot": "12:00-1:00 PM"
+    },
+    {
+      "id": 5,
+      "timeSlot": "4:15-4:45 PM"
+    },
+    {
+      "id": 6,
+      "timeSlot": "4:45-5:35 PM"
+    },
+    {
+      "id": 7,
+      "timeSlot": "5:35-6:20 PM"
+    },
+    {
+      "id": 8,
+      "timeSlot": "6:30-7:30 PM"
+    },
+    {
+      "id": 9,
+      "timeSlot": "7:30-9:00 PM"
+    }
   ],
-   "classes": []
-
+  "classes": []
 }
