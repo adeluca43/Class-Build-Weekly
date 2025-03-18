@@ -6,7 +6,9 @@
       "email": "nicole@gmail.com",
       "phone": "123-456-7890",
       "beltRank": "Black",
-      "payRate": 30
+      "payRate": 30,
+      "address": "123 main st Spring Hill TN 37174",
+      "password": "pass1"
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "email": "Tina@gmail.com",
       "phone": "987-654-3210",
       "beltRank": "Brown",
-      "payRate": 25
+      "payRate": 25,
+      "address": "963 side st Spring Hill TN 37174",
+      "password": "pass2"
     },
     {
       "id": 3,
@@ -22,7 +26,9 @@
       "email": "Will@gmail.com",
       "phone": "555-123-4567",
       "beltRank": "Blue",
-      "payRate": 20
+      "payRate": 20,
+      "address": "573 fifth st Spring Hill TN 37174",
+      "password": "pass3"
     },
     {
       "id": 4,
@@ -30,7 +36,9 @@
       "email": "Johnny@gmail.com",
       "phone": "123-456-7890",
       "beltRank": "Purple",
-      "payRate": 25
+      "payRate": 25,
+      "address": "555 front st Spring Hill TN 37174",
+      "password": "pass4"
     },
     {
       "id": 5,
@@ -38,7 +46,9 @@
       "email": "Charlotte@gmail.com",
       "phone": "987-654-3210",
       "beltRank": "Purple",
-      "payRate": 25
+      "payRate": 25,
+      "address": "987 back st Spring Hill TN 37174",
+      "password": "pass5"
     },
     {
       "id": 6,
@@ -46,7 +56,9 @@
       "email": "Hunt@gmail.com",
       "phone": "555-123-4567",
       "beltRank": "Blue",
-      "payRate": 15
+      "payRate": 15,
+      "address": "234 second st Spring Hill TN 37174",
+      "password": "pass6"
     }
   ],
   "classTypes": [
