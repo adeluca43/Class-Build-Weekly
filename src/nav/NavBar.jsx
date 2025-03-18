@@ -18,7 +18,7 @@ export const NavBar = () => {
             {isLoggedIn && (
                 <>
             <li className="navbar-item">
-                <Link to="/"> All Classes</Link>
+                <Link to="/all-classes"> All Classes</Link>
             </li>
             <li className="navbar-item">
                 <Link to="/Profile">Profile</Link>
