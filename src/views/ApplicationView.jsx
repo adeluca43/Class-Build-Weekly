@@ -8,6 +8,7 @@ import { EditEmployeeProfile } from "../components/Employees/EditEmployeeProfile
 import { CreateNewClass } from "../components/Classes/CreateNewClass";
 import { AllClasses } from "../components/Classes/AllClasses";
 import { EditClass } from "../components/Classes/EditClass";
+import { PaySummary } from "../components/Employees/PaySummary";
 
 export const ApplicationView = () => {
 const [currentUser, setCurrentUser] = useState ([])
@@ -29,8 +30,8 @@ const [currentUser, setCurrentUser] = useState ([])
       <Route path="/profile" element={<EmployeeProfile/>} />
       <Route path="/profile/edit" element={<EditEmployeeProfile />} />
       <Route path="/new-class" element={<CreateNewClass/>} />
-      <Route path="/edit-class" element={<EditClass/>} />
-      <Route path="/pay-summary" element={<h1>Pay Summary</h1>} />
+      <Route path="/edit-class/:classId" element={<EditClass/>} />
+      <Route path="/pay-summary" element={<PaySummary/>} />
       <Route path="/curriculum" element={<h1>Curriculum </h1>} />
       <Route path="/login" element={<Login/>} />
     </Routes>

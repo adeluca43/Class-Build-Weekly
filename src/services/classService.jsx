@@ -10,7 +10,7 @@ export const getShifts = () => {
         .then(res => res.json());
 };
 
-// for createnewclass file
+// for create new class file
 export const makeNewClass = (newClass) => {
     return fetch("http://localhost:8088/classes", {
         method: "POST",
@@ -37,4 +37,15 @@ export const deleteClass = (classId) => {
     return fetch(`http://localhost:8088/classes/${classId}`, {
         method: "DELETE",
     });
+};
+
+// Update class details
+export const updateClass = (classId, updatedClassData) => {
+    return fetch(`http://localhost:8088/classes/${classId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedClassData),
+    }).then(res => res.json());
 };

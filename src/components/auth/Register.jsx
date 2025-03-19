@@ -81,6 +81,20 @@ export const Register = () => {
           </div>
         </fieldset>
         <fieldset className="auth-fieldset">
+    <input
+      onChange={updateUser}
+      type="password"
+      id="password"
+      className="auth-form-input"
+      placeholder="Create a password"
+      required
+    />
+  </fieldset>
+
+
+
+
+        <fieldset className="auth-fieldset">
           <div>
             <button type="submit">Register</button>
           </div>
