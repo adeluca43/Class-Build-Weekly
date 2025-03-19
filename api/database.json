@@ -62,107 +62,107 @@
     }
   ],
   "classTypes": [
-    {
-      "id": 1,
-      "type": "Kids BJJ"
-    },
-    {
-      "id": 2,
-      "type": "Teens BJJ"
-    },
-    {
-      "id": 3,
-      "type": "Adult BJJ"
-    },
-    {
-      "id": 4,
-      "type": "Women's BJJ"
-    },
-    {
-      "id": 5,
-      "type": "Judo"
-    },
-    {
-      "id": 6,
-      "type": "Striking"
-    },
-    {
-      "id": 7,
-      "type": "Boxing"
-    },
-    {
-      "id": 8,
-      "type": "Cardio"
-    }
+    {"id": 1,"type": "Kids BJJ"},
+    {"id": 2,"type": "Teens BJJ"},
+    {"id": 3,"type": "Adult BJJ"},
+    {"id": 4,"type": "Women's BJJ"},
+    {"id": 5,"type": "Judo"},
+    {"id": 6,"type": "Striking"},
+    {"id": 7,"type": "Boxing"},
+    {"id": 8,"type": "Cardio"}
   ],
   "shifts": [
-    {
-      "id": 1,
-      "timeSlot": "6:00-7:00 AM"
-    },
-    {
-      "id": 2,
-      "timeSlot": "9:00-10:00 AM"
-    },
-    {
-      "id": 3,
-      "timeSlot": "11:30 AM - 12:30 PM"
-    },
-    {
-      "id": 4,
-      "timeSlot": "12:00-1:00 PM"
-    },
-    {
-      "id": 5,
-      "timeSlot": "4:15-4:45 PM"
-    },
-    {
-      "id": 6,
-      "timeSlot": "4:45-5:35 PM"
-    },
-    {
-      "id": 7,
-      "timeSlot": "5:35-6:20 PM"
-    },
-    {
-      "id": 8,
-      "timeSlot": "6:30-7:30 PM"
-    },
-    {
-      "id": 9,
-      "timeSlot": "7:30-9:00 PM"
-    }
+    {"id": 1,"timeSlot": "6:00-7:00 AM"},
+    {"id": 2,"timeSlot": "9:00-10:00 AM"},
+    {"id": 3,"timeSlot": "11:30 AM - 12:30 PM"},
+    {"id": 4,"timeSlot": "12:00-1:00 PM"},
+    {"id": 5,"timeSlot": "4:15-4:45 PM"},
+    {"id": 6,"timeSlot": "4:45-5:35 PM"},
+    {"id": 7,"timeSlot": "5:35-6:20 PM"},
+    {"id": 8,"timeSlot": "6:30-7:30 PM"},
+    {"id": 9,"timeSlot": "7:30-9:00 PM"}
   ],
   "classes": [
     {
-      "className": "webb first class",
-      "description": "helped with kids",
+      "className": "Little kids BJJ",
+      "description": "fundamental skills for kids,helped",
       "classType": "Kids BJJ",
-      "dayOfWeek": "Thursday",
-      "timeSlot": "4:45-5:35 PM",
+      "dayOfWeek": "Monday",
+      "timeSlot": "4:15-4:45 PM",
       "employeeId": 5,
       "employeeName": "Charlotte Webb",
+      "id": 1
+    },
+    {
+      "className": "Teens BJJ tactics",
+      "description": "advanced positions and transitions",
+      "classType": "Teens BJJ",
+      "dayOfWeek": "Tuesday",
+      "timeSlot": "5:35-6:20 PM",
+      "employeeId": 5,
+      "employeeName": "Charlotte Webb",
+      "id": 2
+    },
+    {
+      "className": "Judo takedowns",
+      "description": "learning throws and falling",
+      "classType": "Judo",
+      "dayOfWeek": "Thursday",
+      "timeSlot": "7:30-9:00 PM",
+      "employeeId": 6,
+      "employeeName": "Killer Hunt",
+      "id": 3
+    },
+    {
+      "className": "Minis BJJ intros",
+      "description": "basic movements and skills",
+      "classType": "Kids BJJ",
+      "dayOfWeek": "Wednesday",
+      "timeSlot": "4:15-4:45 PM",
+      "employeeId": 6,
+      "employeeName": "Killer Hunt",
       "id": 4
     },
     {
-      "className": "i taught this one",
-      "description": "my first time teaching",
-      "classType": "Adult BJJ",
-      "dayOfWeek": "Friday",
-      "timeSlot": "6:30-7:30 PM",
-      "employeeId": 5,
-      "employeeName": "Charlotte Webb",
+      "className": "Adult boxing fundamentals",
+      "description": "basic footwork",
+      "classType": "Boxing",
+      "dayOfWeek": "Tuesday",
+      "timeSlot": "5:35-6:20 PM",
+      "employeeId": 4,
+      "employeeName": "Johnny Cash",
       "id": 5
     },
     {
-      "className": "test edit",
-      "description": "edit this",
-      "classType": "Kids BJJ",
-      "dayOfWeek": "Monday",
-      "timeSlot": "6:00-7:00 AM",
-      "employeeId": 6,
-      "employeeName": "Killer Hunt",
+      "className": "Attacks from botton",
+      "description": "5 key attacks from bottom",
+      "classType": "Adult BJJ",
+      "dayOfWeek": "Friday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 4,
+      "employeeName": "Johnny Cash",
       "id": 6
+    },
+    {
+      "className": "HITT cardio",
+      "description": "circuit workout training",
+      "classType": "Cardio",
+      "dayOfWeek": "Thursday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 3,
+      "employeeName": "Will Ferrell",
+      "id": 7
+    },
+    {
+      "className": "Advanced Teens",
+      "description": "Teens class with advanced transitions",
+      "classType": "Teens BJJ",
+      "dayOfWeek": "Monday",
+      "timeSlot": "5:35-6:20 PM",
+      "employeeId": 3,
+      "employeeName": "Will Ferrell",
+      "id": 8
     }
-  ]
+  ],
+  "paySummary":[]
 }
