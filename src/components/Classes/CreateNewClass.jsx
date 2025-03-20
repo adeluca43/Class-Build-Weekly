@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getClassTypes, getShifts } from "../../services/classService";
+import { getClassTypes,getShifts } from "../../services/classService";
 import { makeNewClass } from "../../services/classService";
 import { useNavigate } from "react-router-dom";
 
@@ -37,7 +37,7 @@ export const CreateNewClass = () => {
         const handleSubmit = (event) => {
             event.preventDefault();
         
-            const loggedInUser = JSON.parse(localStorage.getItem("employee_user")); // Get the logged-in employee
+            const loggedInEmployee= JSON.parse(localStorage.getItem("employee_data")); // Get the logged-in employee
         
             const newClassData = {
                 className: newClass.className,
@@ -45,8 +45,8 @@ export const CreateNewClass = () => {
                 classType: newClass.classType,
                 dayOfWeek: newClass.dayOfWeek,
                 timeSlot: newClass.timeSlot,
-                employeeId: loggedInUser.id,  
-                employeeName: loggedInUser.name 
+                employeeId: loggedInEmployee.id,  
+                employeeName: loggedInEmployee.name 
             };
         
             makeNewClass(newClassData)
@@ -66,7 +66,7 @@ export const CreateNewClass = () => {
         };
         
 return (
-    <div className="newClassContainer">
+    <div >
       <h1>Add New Class</h1>
       <form onSubmit={handleSubmit}>
         

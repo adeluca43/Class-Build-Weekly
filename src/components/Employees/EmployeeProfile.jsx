@@ -7,32 +7,32 @@ export const EmployeeProfile = () => {
     const navigate = useNavigate();
     const [employee, setEmployee] = useState([]);
   
-    // Get the logged-in user from localStorage
-    const loggedInUser = JSON.parse(localStorage.getItem("employee_user"));
+    // Get the logged-in employee/employee from localStorage
+    const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data"));
   
     useEffect(() => {
-      // If no user is logged in, send them to the login page
-      if (!loggedInUser) {
+      // If no employee is logged in, send them to the login page
+      if (!loggedInEmployee) {
         navigate("/login"); 
         return;
       }
   
-      // Fetch the logged-in user's profile
-      getEmployeeById(loggedInUser.id).then(setEmployee);
-    }, [loggedInUser, navigate]);
+      // Fetch the logged-in employee's profile
+      getEmployeeById(loggedInEmployee.id).then(setEmployee);
+    }, [loggedInEmployee, navigate]);
 
     return (
-      <div className="employee-profile">
+      <div >
         <h1>{employee.name}</h1>
         <p><strong>Phone:</strong> {employee.phone}</p>
         <p><strong>Email:</strong>{employee.email}</p>
         <p><strong>Address:</strong> {employee.address}</p>
         <p><strong>Belt Rank:</strong> {employee.beltRank}</p>
         <p><strong>Pay Rate:</strong> ${employee.payRate} per shift</p>
-         {/* Show Edit button only if the logged-in user is viewing their own profile */}
-      {loggedInUser.id === employee.id && (
+         {/* Show Edit button only if the logged-in employee is viewing their own profile */}
+      {loggedInEmployee.id === employee.id && (
         <button 
-        className="edit-profile-button" 
+         
         onClick={() => navigate("/profile/edit")}
       >
         Edit Profile

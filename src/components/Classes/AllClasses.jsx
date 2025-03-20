@@ -1,10 +1,10 @@
 
 import { useState, useEffect } from "react";
-import { getAllClasses, deleteClass, getClassTypes } from "../../services/classService";
+import { getAllClasses,deleteClass,getClassTypes } from "../../services/classService";
 import { useNavigate } from "react-router-dom";
 
 export const AllClasses = () => {
-    const loggedInUser = JSON.parse(localStorage.getItem("employee_user")); 
+    const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data")); 
 
     const [classes, setClasses] = useState([]);
     const [classTypes, setClassTypes] = useState([]);
@@ -37,7 +37,7 @@ export const AllClasses = () => {
     };
 
     return (
-        <div className="allClassesContainer">
+        <div >
             <h1>All Classes</h1>
 
             {/* Filter Dropdown */}
@@ -57,7 +57,7 @@ export const AllClasses = () => {
                    
 
                     return (
-                        <div key={classItem.id} className="classCard">
+                        <div key={classItem.id} >
                             <strong>{classItem.employee?.name}</strong>
                             <p><strong>Class Type:</strong> {classItem.classType}</p>
                             <p><strong>Class Name:</strong> {classItem.className}</p>
@@ -65,8 +65,8 @@ export const AllClasses = () => {
                             <p><strong>Time Slot:</strong> {classItem.timeSlot}</p>
 
                             {/* Show buttons only for the class creator */}
-                            {loggedInUser?.id === classItem.employee?.id && (
-                                <div className="actionButtons">
+                            {loggedInEmployee?.id === classItem.employee?.id && (
+                                <div >
                                     <button onClick={() => navigate(`/edit-class/${classItem.id}`)}>Edit</button>
                                     <button onClick={() => handleDelete(classItem.id)}>Delete</button>
                                 </div>

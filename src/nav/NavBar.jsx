@@ -3,43 +3,41 @@ import { useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
    const navigate = useNavigate();
-   const isLoggedIn = localStorage.getItem("employee_user");
+   const isLoggedIn = localStorage.getItem("employee_data");
 
    const handleLogout = (event) => {
     event.preventDefault(); // Prevents `<Link>` from overriding navigation
-    localStorage.removeItem("employee_user");
+    localStorage.removeItem("employee_data");
     navigate("/login", { replace: true });
 };
 
 
 
     return (
-        <ul className="navbar">
+        <ul>
             {isLoggedIn && (
                 <>
-            <li className="navbar-item">
+            <li >
                 <Link to="/all-classes"> All Classes</Link>
             </li>
-            <li className="navbar-item">
+            <li >
                 <Link to="/Profile">Profile</Link>
             </li>
-            <li className="navbar-item">
+            <li >
                 <Link to="/new-class">New Class</Link>
             </li>
-            <li className="navbar-item">
+            <li >
                 <Link to="/pay-summary"> Pay Summary</Link>
             </li>
-            <li className="navbar-item">
+            <li >
                 <Link to="/curriculum">Curriculum</Link>
             </li>
                 <li className="navbar-item navbar-logout">
-                    <Link
-                        className="navbar-link"
-                        to=""
+                    <button
                         onClick={handleLogout}
                     >
                         Logout
-                    </Link>
+                    </button>
                 </li>
                 </>
             )}

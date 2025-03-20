@@ -3,26 +3,28 @@ import { useNavigate } from "react-router-dom"
 import { createEmployee, getEmployeeByEmail } from "../../services/employeeService"
 
 export const Register = () => {
-  const [user, setUser] = useState({
+  const [employee, setEmployee] = useState({
     email: "",
     fullName: "",
+    password: "",
   })
   let navigate = useNavigate()
 
-  const registerNewUser = () => {
-    const newUser = {
-      email: user.email.toLowerCase(),
-      name: user.fullName,
+  const registerNewEmployee = () => {
+    const newEmployee = {
+      email: employee.email.toLowerCase(),
+      name: employee.fullName,
+      password: employee.password,
     }
 
-    createEmployee(newUser).then((createdUser) => {
-      if (createdUser?.id) {
+    createEmployee(newEmployee).then((createdEmployee) => {
+      if (createdEmployee?.id) {
         localStorage.setItem(
-          "employee_user",
+          "employee_data",
           JSON.stringify({
-            id: createdUser.id,
-            name: createdUser.name,
-            email: createdUser.email,
+            id: createdEmployee.id,
+            name: createdEmployee.name,
+            email: createdEmployee.email,
           })
         )
         navigate("/")
@@ -30,24 +32,38 @@ export const Register = () => {
     })
   }
 
-  const handleRegister = (e) => {
-    e.preventDefault()
-    getEmployeeByEmail(user.email).then((response) => {
-      if (response.length > 0) {
-        // Duplicate email. No good.
-        window.alert("Account with that email address already exists")
-      } else {
-        // Good email, create user.
-        registerNewUser()
-      }
-    })
-  }
+  const handleRegister = (event) => {
+    event.preventDefault();
 
-  const updateUser = (evt) => {
-    const copy = { ...user };
-    copy[evt.target.id] = evt.target.id === "cohort" ? `Cohort ${evt.target.value}` : evt.target.value;
-    setUser(copy);
+    //Check for required fields before API call
+    if (!employee.email || !employee.password) {
+        window.alert("Email and password are required!");
+        return;
+    }
+
+    getEmployeeByEmail(employee.email).then((response) => {
+        if (response.length > 0) {
+            window.alert("Account with that email address already exists");
+        } else {
+            registerNewEmployee();
+        }
+    });
+};
+
+
+
+
+
+
+
+  const updateEmployee = (evt) => {
+    const { id, value } = evt.target;
+    setEmployee((prevEmployee) => ({
+      ...prevEmployee,
+      [id]: value  //updates password 
+    }));
   };
+  
   
 
   return (
@@ -58,7 +74,7 @@ export const Register = () => {
         <fieldset className="auth-fieldset">
           <div>
             <input
-              onChange={updateUser}
+              onChange={updateEmployee}
               type="text"
               id="fullName"
               className="auth-form-input"
@@ -71,7 +87,7 @@ export const Register = () => {
         <fieldset className="auth-fieldset">
           <div>
             <input
-              onChange={updateUser}
+              onChange={updateEmployee}
               type="email"
               id="email"
               className="auth-form-input"
@@ -82,7 +98,7 @@ export const Register = () => {
         </fieldset>
         <fieldset className="auth-fieldset">
     <input
-      onChange={updateUser}
+      onChange={updateEmployee}
       type="password"
       id="password"
       className="auth-form-input"
