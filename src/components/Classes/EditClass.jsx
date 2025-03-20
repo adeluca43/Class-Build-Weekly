@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getClassTypes, getAllClasses, getShifts, updateClass } from "../../services/classService";
+import {
+  getClassTypes,
+  getAllClasses,
+  getShifts,
+  updateClass,
+} from "../../services/classService";
 
 export const EditClass = () => {
   const { classId } = useParams(); // Get class ID from URL
@@ -14,24 +19,23 @@ export const EditClass = () => {
     timeSlot: "",
   });
 
-  const [classTypes, setClassTypes] = useState([]); // Store class type options
-  const [shiftOptions, setShiftOptions] = useState([]); // Store shift options
+  const [classTypes, setClassTypes] = useState([]);
+  const [shiftOptions, setShiftOptions] = useState([]);
 
   useEffect(() => {
-    // Fetch class details
     getAllClasses().then((allClasses) => {
-      const classToEdit = allClasses.find((cls) => cls.id === parseInt(classId));
+      const classToEdit = allClasses.find(
+        (classObj) => classObj.id === parseInt(classId)
+      );
       if (classToEdit) {
         setClassData(classToEdit);
       }
     });
 
     // Fetch class types and shifts before rendering
-    getClassTypes()
-      .then(setClassTypes)
+    getClassTypes().then(setClassTypes);
 
-    getShifts()
-      .then(setShiftOptions)
+    getShifts().then(setShiftOptions);
   }, [classId]);
 
   // Handle form field changes
@@ -43,29 +47,27 @@ export const EditClass = () => {
     }));
   };
 
-  // Handle form submission using the updateClass function
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
-// Extract only the necessary fields, excluding the expanded `employee` object
-const classDataToSave = {
-    id: classData.id,
-    className: classData.className,
-    description: classData.description,
-    classType: classData.classType,
-    dayOfWeek: classData.dayOfWeek,
-    timeSlot: classData.timeSlot,
-    employeeId: classData.employeeId, // Keep employeeId but remove employee object
-  };
+    // get only the necessary fields
+    const classDataToSave = {
+      id: classData.id,
+      className: classData.className,
+      description: classData.description,
+      classType: classData.classType,
+      dayOfWeek: classData.dayOfWeek,
+      timeSlot: classData.timeSlot,
+      employeeId: classData.employeeId, 
+    };
 
-  updateClass(classId, classDataToSave)
-    .then(() => navigate("/all-classes"))
-};
+    updateClass(classId, classDataToSave).then(() => navigate("/all-classes"));
+  };
 
   return (
     <div>
       <h2>Edit Class</h2>
       <form onSubmit={handleSubmit}>
-        
         {/* Class Name */}
         <label>Class Name:</label>
         <input
@@ -89,7 +91,12 @@ const classDataToSave = {
 
         {/* Day of the Week Dropdown */}
         <label>Day of the Week:</label>
-        <select id="dayOfWeek" name="dayOfWeek" value={classData.dayOfWeek} onChange={handleFieldChange}>
+        <select
+          id="dayOfWeek"
+          name="dayOfWeek"
+          value={classData.dayOfWeek}
+          onChange={handleFieldChange}
+        >
           <option value="">Select a Day</option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
@@ -102,7 +109,13 @@ const classDataToSave = {
 
         {/* Class Type Dropdown */}
         <label>Class Type:</label>
-        <select id="classType" name="classType" value={classData.classType} onChange={handleFieldChange} required>
+        <select
+          id="classType"
+          name="classType"
+          value={classData.classType}
+          onChange={handleFieldChange}
+          required
+        >
           <option value="">Select Class Type</option>
           {classTypes.map((type) => (
             <option key={type.id} value={type.type}>
@@ -113,7 +126,13 @@ const classDataToSave = {
 
         {/* Time Slot Dropdown */}
         <label>Time Slot:</label>
-        <select id="timeSlot" name="timeSlot" value={classData.timeSlot} onChange={handleFieldChange} required>
+        <select
+          id="timeSlot"
+          name="timeSlot"
+          value={classData.timeSlot}
+          onChange={handleFieldChange}
+          required
+        >
           <option value="">Select Time Slot</option>
           {shiftOptions.map((shift) => (
             <option key={shift.id} value={shift.timeSlot}>
@@ -128,12 +147,3 @@ const classDataToSave = {
     </div>
   );
 };
-
-
-
-
-
-
-
-
-

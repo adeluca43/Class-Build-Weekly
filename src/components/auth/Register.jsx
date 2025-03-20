@@ -1,21 +1,24 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { createEmployee, getEmployeeByEmail } from "../../services/employeeService"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  createEmployee,
+  getEmployeeByEmail,
+} from "../../services/employeeService";
 
 export const Register = () => {
   const [employee, setEmployee] = useState({
     email: "",
     fullName: "",
     password: "",
-  })
-  let navigate = useNavigate()
+  });
+  let navigate = useNavigate();
 
   const registerNewEmployee = () => {
     const newEmployee = {
       email: employee.email.toLowerCase(),
       name: employee.fullName,
       password: employee.password,
-    }
+    };
 
     createEmployee(newEmployee).then((createdEmployee) => {
       if (createdEmployee?.id) {
@@ -26,45 +29,37 @@ export const Register = () => {
             name: createdEmployee.name,
             email: createdEmployee.email,
           })
-        )
-        navigate("/")
+        );
+        navigate("/");
       }
-    })
-  }
+    });
+  };
 
   const handleRegister = (event) => {
     event.preventDefault();
 
-    //Check for required fields before API call
+    //Check for email or password missing
     if (!employee.email || !employee.password) {
-        window.alert("Email and password are required!");
-        return;
+      window.alert("Email and password are required!");
+      return;
     }
 
     getEmployeeByEmail(employee.email).then((response) => {
-        if (response.length > 0) {
-            window.alert("Account with that email address already exists");
-        } else {
-            registerNewEmployee();
-        }
+      if (response.length > 0) {
+        window.alert("Account with that email address already exists");
+      } else {
+        registerNewEmployee();
+      }
     });
-};
+  };
 
-
-
-
-
-
-
-  const updateEmployee = (evt) => {
-    const { id, value } = evt.target;
+  const updateEmployee = (event) => {
+    const { id, value } = event.target;
     setEmployee((prevEmployee) => ({
       ...prevEmployee,
-      [id]: value  //updates password 
+      [id]: value,
     }));
   };
-  
-  
 
   return (
     <main className="auth-container">
@@ -97,18 +92,15 @@ export const Register = () => {
           </div>
         </fieldset>
         <fieldset className="auth-fieldset">
-    <input
-      onChange={updateEmployee}
-      type="password"
-      id="password"
-      className="auth-form-input"
-      placeholder="Create a password"
-      required
-    />
-  </fieldset>
-
-
-
+          <input
+            onChange={updateEmployee}
+            type="password"
+            id="password"
+            className="auth-form-input"
+            placeholder="Create a password"
+            required
+          />
+        </fieldset>
 
         <fieldset className="auth-fieldset">
           <div>
@@ -117,5 +109,5 @@ export const Register = () => {
         </fieldset>
       </form>
     </main>
-  )
-}
+  );
+};

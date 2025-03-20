@@ -75,6 +75,12 @@
       "payRate": "30",
       "beltRank": "Black",
       "password": "tank"
+    },
+    {
+      "email": "new@email.com",
+      "name": "New Person 27",
+      "password": "new",
+      "id": 9
     }
   ],
   "classTypes": [
@@ -297,6 +303,26 @@
       "totalPay": 30,
       "date": "Thu Mar 20 2025 09:38:49",
       "id": 2
+    }
+  ],
+  "curriculums": [
+    {
+      "id": 1,
+      "className": "Adult BJJ Defensive Techniques",
+      "description": "Learn to escape from submissions from inside closed guard.",
+      "file": "https://drive.google.com/file/d/14M5Vqbi6NsaKuvAs9ZRYwP4NqZfdOkTF/preview"
+    },
+    {
+      "id": 2,
+      "className": "Kids Competition Team Months 3-4",
+      "description": "Monthly breakdown for kids competition team, focused on strategy and drills.",
+      "file": "https://drive.google.com/file/d/1vy5B6zLp_MHPTa_ATfjI-TnPdAI1BeW7/preview"
+    },
+    {
+      "id": 3,
+      "className": "Beginner Fundamentals Week",
+      "description": "Introduction to Closed Guard Bottom",
+      "file": "https://drive.google.com/file/d/14M5Vqbi6NsaKuvAs9ZRYwP4NqZfdOkTF/preview"
     }
   ]
 }
