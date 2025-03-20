@@ -1,75 +1,69 @@
 import { useState, useEffect } from "react";
-import { getClassTypes,getShifts } from "../../services/classService";
+import { getClassTypes, getShifts } from "../../services/classService";
 import { makeNewClass } from "../../services/classService";
 import { useNavigate } from "react-router-dom";
 
 export const CreateNewClass = () => {
-    const navigate = useNavigate ();
-        const [ shifts, setShifts] = useState([]);
-        const [newClass, setNewClass] = useState({
-            className: "",
-            description: "",
-            classType: "",
-            dayOfWeek: "",
-            timeSlot: ""
-        });
-    
-        const [classTypes, setClassTypes] = useState([]); // Store fetched class types
-    
-        useEffect(() => {
-            getClassTypes()
-                .then(setClassTypes)
-                .catch(error => console.error("Error fetching class types:", error));
-        
-            getShifts()
-                .then(setShifts)
-                .catch(error => console.error("Error fetching shifts:", error));
-        }, []);
-    
-        const handleChange = (event) => {
-            const { name, value } = event.target;
-            setNewClass((prevClass) => ({
-                ...prevClass,
-                [name]: value,
-            }));
-        };
-    
-        const handleSubmit = (event) => {
-            event.preventDefault();
-        
-            const loggedInEmployee= JSON.parse(localStorage.getItem("employee_data")); // Get the logged-in employee
-        
-            const newClassData = {
-                className: newClass.className,
-                description: newClass.description,
-                classType: newClass.classType,
-                dayOfWeek: newClass.dayOfWeek,
-                timeSlot: newClass.timeSlot,
-                employeeId: loggedInEmployee.id,  
-                employeeName: loggedInEmployee.name 
-            };
-        
-            makeNewClass(newClassData)
-                .then(() => {
-                    navigate("/all-classes"); // Redirect to class list after saving
-                })
-                .catch(error => console.error("Error saving class:", error));
-        
-            // Reset form after submission
-            setNewClass({
-                className: "",
-                description: "",
-                classType: "",
-                dayOfWeek: "",
-                timeSlot: ""
-            });
-        };
-        
-return (
-    <div >
+  const navigate = useNavigate();
+  const [shifts, setShifts] = useState([]);
+  const [newClass, setNewClass] = useState({
+    className: "",
+    description: "",
+    classType: "",
+    dayOfWeek: "",
+    timeSlot: "",
+  });
+
+  const [classTypes, setClassTypes] = useState([]);
+
+  useEffect(() => {
+    getClassTypes().then(setClassTypes);
+
+    getShifts().then(setShifts);
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setNewClass((prevClass) => ({
+      ...prevClass,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data")); // Get the logged-in employee
+
+    const newClassData = {
+      className: newClass.className,
+      description: newClass.description,
+      classType: newClass.classType,
+      dayOfWeek: newClass.dayOfWeek,
+      timeSlot: newClass.timeSlot,
+      employeeId: loggedInEmployee.id,
+      employeeName: loggedInEmployee.name,
+    };
+
+    makeNewClass(newClassData)
+      .then(() => {
+        navigate("/all-classes"); 
+      })
+
+    // Reset form after submission
+    setNewClass({
+      className: "",
+      description: "",
+      classType: "",
+      dayOfWeek: "",
+      timeSlot: "",
+    });
+  };
+
+  return (
+    <div>
       <h1>Add New Class</h1>
       <form onSubmit={handleSubmit}>
-        
         {/* Class Name */}
         <label>Class Name:</label>
         <input
@@ -80,7 +74,7 @@ return (
           onChange={handleChange}
           required
         />
-  
+
         {/* Class Description */}
         <label>Class Description:</label>
         <textarea
@@ -90,10 +84,10 @@ return (
           onChange={handleChange}
           required
         />
-  
+
         {/* Class Type Dropdown */}
         <label>Class Type:</label>
-        <select 
+        <select
           id="classType"
           name="classType"
           value={newClass.classType}
@@ -107,10 +101,10 @@ return (
             </option>
           ))}
         </select>
-  
+
         {/* Day of Week Dropdown */}
         <label>Day of the Week:</label>
-        <select 
+        <select
           id="dayOfWeek"
           name="dayOfWeek"
           value={newClass.dayOfWeek}
@@ -126,10 +120,10 @@ return (
           <option value="Saturday">Saturday</option>
           <option value="Sunday">Sunday</option>
         </select>
-  
+
         {/* Time Slot Dropdown */}
         <label>Time Slot:</label>
-        <select 
+        <select
           id="timeSlot"
           name="timeSlot"
           value={newClass.timeSlot}
@@ -139,14 +133,16 @@ return (
           <option value="">Select Time Slot</option>
           {shifts.map((shift) => (
             <option key={shift.id} value={shift.timeSlot}>
-              {shift.timeSlot} 
+              {shift.timeSlot}
             </option>
           ))}
         </select>
-  
+
         {/* Save Button */}
-        <button type="submit" className="btn btn-primary w-100">Save</button>
-    </form>
-</div>
-);
+        <button type="submit" className="btn btn-primary w-100">
+          Save
+        </button>
+      </form>
+    </div>
+  );
 };

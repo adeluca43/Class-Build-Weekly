@@ -9,7 +9,7 @@ import { CreateNewClass } from "../components/Classes/CreateNewClass";
 import { AllClasses } from "../components/Classes/AllClasses";
 import { EditClass } from "../components/Classes/EditClass";
 import { PaySummary } from "../components/Employees/PaySummary";
-
+import { Curriculum } from "../components/Curriculum";
 
 export const ApplicationView = () => {
 const [currentEmployee, setCurrentEmployee] = useState ([])
@@ -33,7 +33,7 @@ const [currentEmployee, setCurrentEmployee] = useState ([])
       <Route path="/new-class" element={<CreateNewClass/>} />
       <Route path="/edit-class/:classId" element={<EditClass/>} />
       <Route path="/pay-summary" element={<PaySummary/>} />
-      <Route path="/curriculum" element={<h1>Curriculum</h1>} />
+      <Route path="/curriculum" element={<Curriculum/>} />
       <Route path="/login" element={<Login/>} />
     </Routes>
     </>

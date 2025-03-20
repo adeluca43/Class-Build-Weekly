@@ -6,7 +6,7 @@ export const NavBar = () => {
    const isLoggedIn = localStorage.getItem("employee_data");
 
    const handleLogout = (event) => {
-    event.preventDefault(); // Prevents `<Link>` from overriding navigation
+    event.preventDefault(); // Prevents <Link> from overriding navigation
     localStorage.removeItem("employee_data");
     navigate("/login", { replace: true });
 };
