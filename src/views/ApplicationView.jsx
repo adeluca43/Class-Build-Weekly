@@ -10,21 +10,22 @@ import { AllClasses } from "../components/Classes/AllClasses";
 import { EditClass } from "../components/Classes/EditClass";
 import { PaySummary } from "../components/Employees/PaySummary";
 
+
 export const ApplicationView = () => {
-const [currentUser, setCurrentUser] = useState ([])
+const [currentEmployee, setCurrentEmployee] = useState ([])
 
 
     useEffect(() => {
-        const localEmployeeUser = localStorage.getItem("employee_user");
-        if (localEmployeeUser) {
-          setCurrentUser(JSON.parse(localEmployeeUser));
+        const localEmployeeEmployee = localStorage.getItem("employee_data");
+        if (localEmployeeEmployee) {
+          setCurrentEmployee(JSON.parse(localEmployeeEmployee));
         }
       }, []);
       
 
   return (
     <>
-    <NavBar currentUser={currentUser} />
+    <NavBar currentEmployee={currentEmployee} />
     <Routes>
       <Route path="/all-classes" element={<AllClasses/>} />
       <Route path="/profile" element={<EmployeeProfile/>} />
@@ -32,7 +33,7 @@ const [currentUser, setCurrentUser] = useState ([])
       <Route path="/new-class" element={<CreateNewClass/>} />
       <Route path="/edit-class/:classId" element={<EditClass/>} />
       <Route path="/pay-summary" element={<PaySummary/>} />
-      <Route path="/curriculum" element={<h1>Curriculum </h1>} />
+      <Route path="/curriculum" element={<h1>Curriculum</h1>} />
       <Route path="/login" element={<Login/>} />
     </Routes>
     </>

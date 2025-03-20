@@ -44,43 +44,110 @@
       "id": 5,
       "name": "Charlotte Webb",
       "address": "987 back st Spring Hill TN 37174",
-      "phone": "987-654-3210",
+      "phone": "987-654-3777",
       "email": "Charlotte@gmail.com",
-      "payRate": 25,
+      "payRate": "20",
       "beltRank": "Purple",
       "password": "pass5"
     },
     {
       "id": 6,
-      "name": "Killer Hunt",
+      "name": "Miles Hunt ",
       "address": "234 5th st Spring Hill TN 37174",
-      "phone": "555-123-555",
+      "phone": "555-123-2222",
       "email": "Hunt@gmail.com",
       "payRate": 15,
       "beltRank": "Blue",
       "password": "pass6"
+    },
+    {
+      "email": "k@k.com",
+      "name": "Coach K",
+      "password": "pass10",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "name": "Frank the Tank",
+      "address": "756 3rd st spring hill tn 37174",
+      "phone": "444-444-4444",
+      "email": "tank@gmail.com",
+      "payRate": "30",
+      "beltRank": "Black",
+      "password": "tank"
     }
   ],
   "classTypes": [
-    {"id": 1,"type": "Kids BJJ"},
-    {"id": 2,"type": "Teens BJJ"},
-    {"id": 3,"type": "Adult BJJ"},
-    {"id": 4,"type": "Women's BJJ"},
-    {"id": 5,"type": "Judo"},
-    {"id": 6,"type": "Striking"},
-    {"id": 7,"type": "Boxing"},
-    {"id": 8,"type": "Cardio"}
+    {
+      "id": 1,
+      "type": "Kids BJJ"
+    },
+    {
+      "id": 2,
+      "type": "Teens BJJ"
+    },
+    {
+      "id": 3,
+      "type": "Adult BJJ"
+    },
+    {
+      "id": 4,
+      "type": "Women's BJJ"
+    },
+    {
+      "id": 5,
+      "type": "Judo"
+    },
+    {
+      "id": 6,
+      "type": "Striking"
+    },
+    {
+      "id": 7,
+      "type": "Boxing"
+    },
+    {
+      "id": 8,
+      "type": "Cardio"
+    }
   ],
   "shifts": [
-    {"id": 1,"timeSlot": "6:00-7:00 AM"},
-    {"id": 2,"timeSlot": "9:00-10:00 AM"},
-    {"id": 3,"timeSlot": "11:30 AM - 12:30 PM"},
-    {"id": 4,"timeSlot": "12:00-1:00 PM"},
-    {"id": 5,"timeSlot": "4:15-4:45 PM"},
-    {"id": 6,"timeSlot": "4:45-5:35 PM"},
-    {"id": 7,"timeSlot": "5:35-6:20 PM"},
-    {"id": 8,"timeSlot": "6:30-7:30 PM"},
-    {"id": 9,"timeSlot": "7:30-9:00 PM"}
+    {
+      "id": 1,
+      "timeSlot": "6:00-7:00 AM"
+    },
+    {
+      "id": 2,
+      "timeSlot": "9:00-10:00 AM"
+    },
+    {
+      "id": 3,
+      "timeSlot": "11:30 AM - 12:30 PM"
+    },
+    {
+      "id": 4,
+      "timeSlot": "12:00-1:00 PM"
+    },
+    {
+      "id": 5,
+      "timeSlot": "4:15-4:45 PM"
+    },
+    {
+      "id": 6,
+      "timeSlot": "4:45-5:35 PM"
+    },
+    {
+      "id": 7,
+      "timeSlot": "5:35-6:20 PM"
+    },
+    {
+      "id": 8,
+      "timeSlot": "6:30-7:30 PM"
+    },
+    {
+      "id": 9,
+      "timeSlot": "7:30-9:00 PM"
+    }
   ],
   "classes": [
     {
@@ -104,24 +171,13 @@
       "id": 2
     },
     {
-      "className": "Judo takedowns",
-      "description": "learning throws and falling",
-      "classType": "Judo",
-      "dayOfWeek": "Thursday",
-      "timeSlot": "7:30-9:00 PM",
-      "employeeId": 6,
-      "employeeName": "Killer Hunt",
-      "id": 3
-    },
-    {
+      "id": 4,
       "className": "Minis BJJ intros",
       "description": "basic movements and skills",
       "classType": "Kids BJJ",
-      "dayOfWeek": "Wednesday",
+      "dayOfWeek": "Friday",
       "timeSlot": "4:15-4:45 PM",
-      "employeeId": 6,
-      "employeeName": "Killer Hunt",
-      "id": 4
+      "employeeId": 6
     },
     {
       "className": "Adult boxing fundamentals",
@@ -134,7 +190,7 @@
       "id": 5
     },
     {
-      "className": "Attacks from botton",
+      "className": "Attacks from bottom",
       "description": "5 key attacks from bottom",
       "classType": "Adult BJJ",
       "dayOfWeek": "Friday",
@@ -162,7 +218,85 @@
       "employeeId": 3,
       "employeeName": "Will Ferrell",
       "id": 8
+    },
+    {
+      "id": 9,
+      "className": "Striking 101",
+      "description": "fundamental striking class",
+      "classType": "Striking",
+      "dayOfWeek": "Wednesday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 6
+    },
+    {
+      "className": "kids judo",
+      "description": "kids takedowns",
+      "classType": "Judo",
+      "dayOfWeek": "Tuesday",
+      "timeSlot": "4:45-5:35 PM",
+      "employeeId": 6,
+      "employeeName": "Killer Hunt",
+      "id": 10
+    },
+    {
+      "className": "Sparing class",
+      "description": "open mat time for striking sparring",
+      "classType": "Striking",
+      "dayOfWeek": "Sunday",
+      "timeSlot": "9:00-10:00 AM",
+      "employeeId": 7,
+      "employeeName": "Coach K",
+      "id": 11
+    },
+    {
+      "className": "MMA night",
+      "description": "Mixing stand up and ground games",
+      "classType": "Striking",
+      "dayOfWeek": "Friday",
+      "timeSlot": "7:30-9:00 PM",
+      "employeeId": 7,
+      "employeeName": "Coach K",
+      "id": 12
+    },
+    {
+      "className": "Intro to bjj",
+      "description": "womens only fundamental class",
+      "classType": "Women's BJJ",
+      "dayOfWeek": "Tuesday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 5,
+      "employeeName": "Charlotte Webb",
+      "id": 13
+    },
+    {
+      "className": "Cardio kickboxing",
+      "description": "Tank's kickboxing workout",
+      "classType": "Cardio",
+      "dayOfWeek": "Saturday",
+      "timeSlot": "11:30 AM - 12:30 PM",
+      "employeeId": 8,
+      "employeeName": "Frank the Tank",
+      "id": 14
     }
   ],
-  "paySummary":[]
+  "paySummary": [
+    {
+      "employeeId": 5,
+      "employeeName": "Charlotte Webb",
+      "totalClasses": 2,
+      "payRate": "20",
+      "totalPay": 40,
+      "date": "Wed Mar 19 2025 13:53:25",
+      "id": 1
+    },
+    {
+      "employeeId": 8,
+      "employeeName": "Frank the Tank",
+      "totalClasses": 1,
+      "payRate": "30",
+      "totalPay": 30,
+      "date": "Thu Mar 20 2025 09:38:49",
+      "id": 2
+    }
+  ]
 }

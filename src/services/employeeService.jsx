@@ -10,29 +10,32 @@ export const getEmployeeByEmail = (email) =>
     fetch(`http://localhost:8088/employees?email=${email}`).then(res => res.json());
 
 //used during registration
-export const createEmployee = (user) => {
+export const createEmployee = (employee) => {
     return fetch("http://localhost:8088/employees", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(employee),
     }).then((res) => res.json())
   }
 
 
-  // Update employee details (used in Edit Profile)
+ 
+// Update employee details (used in Edit Profile)
 export const updateEmployee = (id, updatedEmployee) => {
-    return fetch(`http://localhost:8088/employees/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedEmployee),
-    }).then((res) => {
-        if (!res.ok) {
-            throw new Error("Failed to update employee");
-        }
-        return res.json();
-    });
+    return fetch(`http://localhost:8088/employees/${id}`)
+        .then(res => res.json())
+        .then(existingEmployee => ({
+            ...updatedEmployee,
+            password: updatedEmployee.password || existingEmployee.password // ✅ Keep old password if not changed
+        }))
+        .then(employeeToUpdate => 
+            fetch(`http://localhost:8088/employees/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(employeeToUpdate),
+            })
+        )
+        .then(res => res.json());
 };

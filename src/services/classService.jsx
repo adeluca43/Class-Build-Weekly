@@ -25,11 +25,6 @@ export const makeNewClass = (newClass) => {
 // for all classes
 export const getAllClasses = () => {
     return fetch("http://localhost:8088/classes?_expand=employee", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(),
     }).then(res => res.json());
 };
 

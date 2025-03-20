@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { updateEmployee } from "../../services/employeeService";
 
 export const EditEmployeeProfile = () => {
     const navigate = useNavigate ();
@@ -10,11 +11,12 @@ export const EditEmployeeProfile = () => {
         email: "",
         payRate: "",
         beltRank: "",
+        password: ""
     });
 
     useEffect(() => {
         // Fetch current employee details from localStorage or API
-        const storedEmployee = JSON.parse(localStorage.getItem("employee_user"));
+        const storedEmployee = JSON.parse(localStorage.getItem("employee_data"));
         if (storedEmployee) {
             setEmployee({
                 id: storedEmployee.id, 
@@ -24,6 +26,7 @@ export const EditEmployeeProfile = () => {
                 email: storedEmployee.email || "",
                 payRate: storedEmployee.payRate || "",
                 beltRank: storedEmployee.beltRank || "",
+                 password: storedEmployee.password || "",
             });
         } 
     }, []);
@@ -35,44 +38,27 @@ export const EditEmployeeProfile = () => {
             [name]: value,
         }));
     };
-    const handleSubmit = (event) => {
+   
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const updatedEmployee = {
-            ...employee, // Keep existing user details, especially ID
-        };
-
-        // Save to localStorage
-        localStorage.setItem("employee_user", JSON.stringify(updatedEmployee));
-
-        // If using an API, update the backend
-        fetch(`http://localhost:8088/employees/${employee.id}`, {
-            method: "PUT",  
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedEmployee),
-        })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to update employee in the database");
-            }
-            return response.json();
-        })
-        .then(() => {
-        
-            navigate("/profile");  // Navigate after successful save
-        })
-    
+        try {
+            const updatedEmployee = await updateEmployee(employee.id, employee);
+            localStorage.setItem("employee_data", JSON.stringify(updatedEmployee));
+            navigate("/profile");
+        } catch (error) {
+            console.error("Error updating employee:", error);
+        }
     };
+    
 
     
 
     return (
-        <div className="edit-employee-profile"> 
+        <div > 
             <h2>Edit Employee Profile</h2>
 <form onSubmit={handleSubmit}>
-            <label className="name">Full Name:</label>
+            <label >Full Name:</label>
             <input 
                 type="text"
                 id="name"
@@ -81,7 +67,7 @@ export const EditEmployeeProfile = () => {
                 onChange={handleChange}
             />
 
-            <label className="address">Address:</label>
+            <label >Address:</label>
             <input 
                 type="text"
                 id="address"
@@ -90,7 +76,7 @@ export const EditEmployeeProfile = () => {
                 onChange={handleChange}
             />
 
-            <label className="phone">Phone Number:</label>
+            <label >Phone Number:</label>
             <input 
                 type="text"
                 id="phone"
@@ -99,7 +85,7 @@ export const EditEmployeeProfile = () => {
                 onChange={handleChange}
             />
 
-            <label className="email">Email Address:</label>
+            <label >Email Address:</label>
             <input 
                 type="email"
                 id="email"
@@ -108,7 +94,7 @@ export const EditEmployeeProfile = () => {
                 onChange={handleChange}
             />
 
-            <label className="payRate">Pay Rate:</label>
+            <label>Pay Rate:</label>
             <select
                 id="payRate"
                 name="payRate"
@@ -123,7 +109,7 @@ export const EditEmployeeProfile = () => {
                 <option value="30">$30 per shift</option>
             </select>
 
-            <label className="beltRank">Belt Rank:</label>
+            <label >Belt Rank:</label>
             <select
                 id="beltRank"
                 name="beltRank"
