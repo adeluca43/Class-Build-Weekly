@@ -21,28 +21,38 @@ export const EmployeeProfile = () => {
   }, [loggedInEmployee, navigate]);
 
   return (
-    <div>
-      <h1>{employee.name}</h1>
-      <p>
-        <strong>Phone:</strong> {employee.phone}
-      </p>
-      <p>
-        <strong>Email:</strong>
-        {employee.email}
-      </p>
-      <p>
-        <strong>Address:</strong> {employee.address}
-      </p>
-      <p>
-        <strong>Belt Rank:</strong> {employee.beltRank}
-      </p>
-      <p>
-        <strong>Pay Rate:</strong> ${employee.payRate} per shift
-      </p>
-
-      {loggedInEmployee.id === employee.id && (
-        <button onClick={() => navigate("/profile/edit")}>Edit Profile</button>
-      )}
+    <div className="container mt-4">
+      <div className="card shadow-sm p-4">
+        <h1 className="card-title mb-4 text-success">{employee.name}</h1>
+  
+        <p className="mb-3 fs-5">
+          <span className="fw-bold">Phone:</span> {employee.phone}
+        </p>
+        <p className="mb-3 fs-5">
+          <span className="fw-bold">Email:</span> {employee.email}
+        </p>
+        <p className="mb-3 fs-5">
+          <span className="fw-bold">Address:</span> {employee.address}
+        </p>
+        <p className="mb-3 fs-5">
+          <span className="fw-bold">Belt Rank:</span> {employee.beltRank}
+        </p>
+        <p className="mb-4 fs-5">
+          <span className="fw-bold">Pay Rate:</span> ${employee.payRate} per shift
+        </p>
+  
+        {loggedInEmployee.id === employee.id && (
+          <button
+            className="btn fw-bold"
+            style={{ backgroundColor: "goldenrod", color: "black", border: "none" }}
+            onClick={() => navigate("/profile/edit")}
+          >
+            Edit Profile
+          </button>
+        )}
+      </div>
     </div>
   );
-};
+  
+      
+}

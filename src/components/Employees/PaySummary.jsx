@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+/*import { useState, useEffect } from "react";
 import { getAllClasses } from "../../services/classService";
 import { submitPayroll,checkExistingPayroll } from "../../services/paySummaryService";
 
@@ -74,5 +74,5 @@ export const PaySummary = () => {
       </button>
     </div>
   );
-};
+};*/
 

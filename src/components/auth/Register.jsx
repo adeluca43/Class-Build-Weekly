@@ -62,52 +62,60 @@ export const Register = () => {
   };
 
   return (
-    <main className="auth-container">
-      <form className="auth-form" onSubmit={handleRegister}>
-        <h1 className="header">Employee Class Tracker</h1>
-        <h2>Please Register</h2>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateEmployee}
-              type="text"
-              id="fullName"
-              className="auth-form-input"
-              placeholder="Enter your name"
-              required
-              autoFocus
-            />
-          </div>
+    <main className="container d-flex justify-content-center align-items-center vh-100">
+      <form
+        className="card shadow-sm p-4"
+        onSubmit={handleRegister}
+        style={{ maxWidth: "400px", width: "100%" }}
+      >
+        <h1 className="text-success text-center mb-2">Employee Class Tracker</h1>
+        <h2 className="text-center mb-4">Please Register</h2>
+  
+        <fieldset className="mb-3 border-0">
+          <input
+            onChange={updateEmployee}
+            type="text"
+            id="fullName"
+            className="form-control"
+            placeholder="Enter your name"
+            required
+            autoFocus
+          />
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateEmployee}
-              type="email"
-              id="email"
-              className="auth-form-input"
-              placeholder="Email address"
-              required
-            />
-          </div>
+  
+        <fieldset className="mb-3 border-0">
+          <input
+            onChange={updateEmployee}
+            type="email"
+            id="email"
+            className="form-control"
+            placeholder="Email address"
+            required
+          />
         </fieldset>
-        <fieldset className="auth-fieldset">
+  
+        <fieldset className="mb-4 border-0">
           <input
             onChange={updateEmployee}
             type="password"
             id="password"
-            className="auth-form-input"
+            className="form-control"
             placeholder="Create a password"
             required
           />
         </fieldset>
-
-        <fieldset className="auth-fieldset">
-          <div>
-            <button type="submit">Register</button>
-          </div>
+  
+        <fieldset className="border-0">
+          <button
+            type="submit"
+            className="btn fw-bold w-100"
+            style={{ backgroundColor: "goldenrod", color: "black", border: "none" }}
+          >
+            Register
+          </button>
         </fieldset>
       </form>
     </main>
   );
+  
 };
