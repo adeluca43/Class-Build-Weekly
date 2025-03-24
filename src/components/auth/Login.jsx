@@ -47,43 +47,52 @@ export const Login = () => {
   };
 
   return (
-    <main>
-      <section>
+    <main className="container d-flex justify-content-center align-items-center vh-100">
+      <section className="card shadow-sm p-4" style={{ maxWidth: "400px", width: "100%" }}>
         <form onSubmit={handleSubmit}>
-          <h1>Employee Class Tracker</h1>
-          <fieldset>
-            <div>
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="Email address"
-                required
-                autoFocus
-              />
-            </div>
+          <h1 className="text-success text-center mb-4">Employee Class Tracker</h1>
+  
+          <fieldset className="mb-3 border-0">
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="Email address"
+              required
+              autoFocus
+            />
           </fieldset>
-          <fieldset>
-            <div>
-              <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder="Password"
-                required
-              />
-            </div>
+  
+          <fieldset className="mb-4 border-0">
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Password"
+              required
+            />
           </fieldset>
-          <fieldset>
-            <div>
-              <button type="submit">Sign in</button>
-            </div>
+  
+          <fieldset className="border-0">
+            <button
+              type="submit"
+              className="btn fw-bold w-100"
+              style={{ backgroundColor: "goldenrod", color: "black", border: "none" }}
+            >
+              Sign In
+            </button>
           </fieldset>
         </form>
-      </section>
-      <section>
-        <Link to="/register">"First time? Create your profile now!"</Link>
+  
+        <div className="text-center mt-3">
+          <Link to="/register" className="text-decoration-none fw-bold text-secondary">
+            First time? Create your profile now!
+          </Link>
+        </div>
       </section>
     </main>
   );
+  
 };

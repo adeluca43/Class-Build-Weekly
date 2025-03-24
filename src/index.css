@@ -54,15 +54,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+/*helps with calendar column layout */
+@media (min-width: 992px) {
+  .col-lg-1-7 {
+    flex: 0 0 14.2857%;
+    max-width: 14.2857%;
   }
 }

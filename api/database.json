@@ -81,6 +81,26 @@
       "name": "New Person 27",
       "password": "new",
       "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Dave B",
+      "address": "123 main st",
+      "phone": "12345",
+      "email": "dave@email.com",
+      "payRate": "30",
+      "beltRank": "Purple",
+      "password": "12345"
+    },
+    {
+      "id": 11,
+      "name": "Angelina",
+      "address": "123 west st",
+      "phone": "1231231234",
+      "email": "a@gmail.com",
+      "payRate": "30",
+      "beltRank": "Black",
+      "password": "a"
     }
   ],
   "classTypes": [
@@ -235,14 +255,13 @@
       "employeeId": 6
     },
     {
+      "id": 10,
       "className": "kids judo",
       "description": "kids takedowns",
       "classType": "Judo",
-      "dayOfWeek": "Tuesday",
+      "dayOfWeek": "Wednesday",
       "timeSlot": "4:45-5:35 PM",
-      "employeeId": 6,
-      "employeeName": "Killer Hunt",
-      "id": 10
+      "employeeId": 6
     },
     {
       "className": "Sparing class",
@@ -283,6 +302,15 @@
       "employeeId": 8,
       "employeeName": "Frank the Tank",
       "id": 14
+    },
+    {
+      "id": 15,
+      "className": "Learning stuff 101",
+      "description": "learning new things",
+      "classType": "Adult BJJ",
+      "dayOfWeek": "Monday",
+      "timeSlot": "6:30-7:30 PM",
+      "employeeId": 11
     }
   ],
   "paySummary": [
