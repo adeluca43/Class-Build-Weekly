@@ -47,7 +47,7 @@ export const AllClasses = () => {
     "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
   ];
   
-  // Optional: sort timeSlot strings (assumes format like "10:00 AM", etc.)
+  //  sort timeSlot strings 
   const sortByTimeSlot = (a, b) => {
     return new Date(`1970/01/01 ${a.timeSlot}`) - new Date(`1970/01/01 ${b.timeSlot}`);
   };

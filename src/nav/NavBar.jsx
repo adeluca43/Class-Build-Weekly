@@ -15,7 +15,6 @@ export const NavBar = () => {
       {isLoggedIn && (
         <nav className="navbar navbar-expand-md bg-success px-3 py-2">
           <div className="container">
-            {/* Brand */}
             <span className="navbar-brand fw-bold text-white">Class Tracker</span>
 
             {/* Hamburger Menu */}
