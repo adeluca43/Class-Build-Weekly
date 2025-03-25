@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  getClassTypes,
-  getAllClasses,
-  getShifts,
-  updateClass,
-} from "../../services/classService";
+import { getClassTypes,getAllClasses,getShifts,updateClass} from "../../services/classService";
 
 export const EditClass = () => {
   const { classId } = useParams(); // Get class ID from URL
@@ -25,20 +20,20 @@ export const EditClass = () => {
   useEffect(() => {
     getAllClasses().then((allClasses) => {
       const classToEdit = allClasses.find(
-        (classObj) => classObj.id === parseInt(classId)
+        (classObj) => classObj.id === parseInt(classId) //classId from url from useParams
       );
       if (classToEdit) {
         setClassData(classToEdit);
       }
     });
 
-    // Fetch class types and shifts before rendering
+    // Fetch class types and shifts update the state value
     getClassTypes().then(setClassTypes);
 
     getShifts().then(setShiftOptions);
   }, [classId]);
 
-  // Handle form field changes
+  // updates form state when input field changes
   const handleFieldChange = (event) => {
     const { name, value } = event.target;
     setClassData((prevData) => ({

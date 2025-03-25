@@ -6,8 +6,8 @@ import {
 } from "../../services/classService";
 import { useNavigate } from "react-router-dom";
 
-export const AllClasses = () => {
-  const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data"));
+export const AllClasses = ({currentEmployee}) => {
+ 
 
   const [classes, setClasses] = useState([]);
   const [classTypes, setClassTypes] = useState([]);
@@ -24,7 +24,7 @@ export const AllClasses = () => {
     });
   }, []);
 
-  // Filtered classes based on selected type
+  // If a filter is selected, only show matching classes. Otherwise, show all classes
   const filteredClasses = filterType
     ? classes.filter((classItem) => classItem.classType === filterType)
     : classes;
@@ -33,7 +33,7 @@ export const AllClasses = () => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this class?"
     );
-    if (!confirmDelete) return;
+    if (!confirmDelete) return; //if cancel is clicked the confirmDelete is false so the return exits the function
 
     {
       await deleteClass(classId);
@@ -43,11 +43,14 @@ export const AllClasses = () => {
     }
   };
 
+  //array of days to map through, still displays day if no classes are on it
   const daysOfWeek = [
     "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
   ];
   
-  //  sort timeSlot strings 
+ //function sorts class times in order.
+// adds a fake date ("1970/01/01") to compare the times correctly.
+// subtracts the two times to know which one comes first
   const sortByTimeSlot = (a, b) => {
     return new Date(`1970/01/01 ${a.timeSlot}`) - new Date(`1970/01/01 ${b.timeSlot}`);
   };
@@ -78,7 +81,7 @@ export const AllClasses = () => {
       <div className="d-md-flex flex-md-nowrap flex-wrap gap-3 overflow-auto pb-3">
         {daysOfWeek.map((day) => {
           const dayClasses = filteredClasses
-            .filter((c) => c.dayOfWeek === day)
+            .filter((classObj) => classObj.dayOfWeek === day)
             .sort(sortByTimeSlot);
   
           return (
@@ -100,7 +103,7 @@ export const AllClasses = () => {
                       <p className="mb-1"><strong>Time:</strong> {classItem.timeSlot}</p>
                       <p className="mb-2"><strong>Instructor:</strong> {classItem.employee?.name}</p>
   
-                      {loggedInEmployee?.id === classItem.employee?.id && (
+                      {currentEmployee?.id === classItem.employee?.id && (
                         <div className="d-flex gap-2">
                           <button
                             className="btn btn-sm fw-bold"

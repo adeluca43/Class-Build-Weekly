@@ -65,6 +65,14 @@ export const NavBar = () => {
                     Curriculum
                   </Link>
                 </li>
+                <li className="nav-item mb-2 mb-md-0">
+                  <Link
+                    to="/employee-directory"
+                    className="nav-link fw-bold text-dark bg-light rounded-pill px-3 py-1"
+                  >
+                    Employee Directory
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <button
                     className="nav-link fw-bold text-dark bg-light rounded-pill px-3 py-1 border-0"
