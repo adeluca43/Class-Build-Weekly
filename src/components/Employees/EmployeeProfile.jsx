@@ -2,23 +2,21 @@ import { useEffect, useState } from "react";
 import { getEmployeeById } from "../../services/employeeService";
 import { useNavigate } from "react-router-dom";
 
-export const EmployeeProfile = () => {
+export const EmployeeProfile = ({currentEmployee}) => {
   const navigate = useNavigate();
   const [employee, setEmployee] = useState([]);
 
-  // Get the logged-in employee from localStorage
-  const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data"));
 
   useEffect(() => {
     // If no employee is logged in, send them to the login page
-    if (!loggedInEmployee) {
+    if (!currentEmployee || !currentEmployee.id) {
       navigate("/login");
       return;
     }
 
     // Fetch the logged-in employee's profile
-    getEmployeeById(loggedInEmployee.id).then(setEmployee);
-  }, [loggedInEmployee, navigate]);
+    getEmployeeById(currentEmployee.id).then(setEmployee);
+  }, [currentEmployee, navigate]);
 
   return (
     <div className="container mt-4">
@@ -41,7 +39,7 @@ export const EmployeeProfile = () => {
           <span className="fw-bold">Pay Rate:</span> ${employee.payRate} per shift
         </p>
   
-        {loggedInEmployee.id === employee.id && (
+        {currentEmployee.id === employee.id && (
           <button
             className="btn fw-bold"
             style={{ backgroundColor: "goldenrod", color: "black", border: "none" }}

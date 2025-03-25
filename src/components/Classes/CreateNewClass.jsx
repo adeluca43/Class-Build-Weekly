@@ -3,7 +3,7 @@ import { getClassTypes, getShifts } from "../../services/classService";
 import { makeNewClass } from "../../services/classService";
 import { useNavigate } from "react-router-dom";
 
-export const CreateNewClass = () => {
+export const CreateNewClass = ({ currentEmployee }) => {
   const navigate = useNavigate();
   const [shifts, setShifts] = useState([]);
   const [newClass, setNewClass] = useState({
@@ -23,7 +23,7 @@ export const CreateNewClass = () => {
   }, []);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target; //destructuring to get the name and value from the input element
     setNewClass((prevClass) => ({
       ...prevClass,
       [name]: value,
@@ -33,24 +33,21 @@ export const CreateNewClass = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const loggedInEmployee = JSON.parse(localStorage.getItem("employee_data")); // Get the logged-in employee
-
     const newClassData = {
       className: newClass.className,
       description: newClass.description,
       classType: newClass.classType,
       dayOfWeek: newClass.dayOfWeek,
       timeSlot: newClass.timeSlot,
-      employeeId: loggedInEmployee.id,
-      employeeName: loggedInEmployee.name,
+      employeeId: currentEmployee.id, //links class to logged in employee
+      employeeName: currentEmployee.name, //stores name for display purpose
     };
 
-    makeNewClass(newClassData)
-      .then(() => {
-        navigate("/all-classes"); 
-      })
+    makeNewClass(newClassData).then(() => {
+      navigate("/all-classes");
+    });
 
-    // Reset form after submission
+    // Reset form after submission 
     setNewClass({
       className: "",
       description: "",
@@ -63,11 +60,13 @@ export const CreateNewClass = () => {
     <div className="container mt-4">
       <div className="card shadow-sm p-4">
         <h1 className="text-success mb-4">Add New Class</h1>
-  
+
         <form onSubmit={handleSubmit}>
           {/* Class Name */}
           <div className="mb-3">
-            <label htmlFor="className" className="form-label fw-bold">Class Name:</label>
+            <label htmlFor="className" className="form-label fw-bold">
+              Class Name:
+            </label>
             <input
               type="text"
               id="className"
@@ -78,10 +77,12 @@ export const CreateNewClass = () => {
               required
             />
           </div>
-  
+
           {/* Class Description */}
           <div className="mb-3">
-            <label htmlFor="description" className="form-label fw-bold">Class Description:</label>
+            <label htmlFor="description" className="form-label fw-bold">
+              Class Description:
+            </label>
             <textarea
               id="description"
               name="description"
@@ -91,10 +92,12 @@ export const CreateNewClass = () => {
               required
             />
           </div>
-  
+
           {/* Class Type Dropdown */}
           <div className="mb-3">
-            <label htmlFor="classType" className="form-label fw-bold">Class Type:</label>
+            <label htmlFor="classType" className="form-label fw-bold">
+              Class Type:
+            </label>
             <select
               id="classType"
               name="classType"
@@ -111,10 +114,12 @@ export const CreateNewClass = () => {
               ))}
             </select>
           </div>
-  
+
           {/* Day of Week Dropdown */}
           <div className="mb-3">
-            <label htmlFor="dayOfWeek" className="form-label fw-bold">Day of the Week:</label>
+            <label htmlFor="dayOfWeek" className="form-label fw-bold">
+              Day of the Week:
+            </label>
             <select
               id="dayOfWeek"
               name="dayOfWeek"
@@ -133,10 +138,12 @@ export const CreateNewClass = () => {
               <option value="Sunday">Sunday</option>
             </select>
           </div>
-  
+
           {/* Time Slot Dropdown */}
           <div className="mb-4">
-            <label htmlFor="timeSlot" className="form-label fw-bold">Time Slot:</label>
+            <label htmlFor="timeSlot" className="form-label fw-bold">
+              Time Slot:
+            </label>
             <select
               id="timeSlot"
               name="timeSlot"
@@ -153,12 +160,16 @@ export const CreateNewClass = () => {
               ))}
             </select>
           </div>
-  
+
           {/* Save Button */}
           <button
             type="submit"
             className="btn fw-bold w-100"
-            style={{ backgroundColor: "goldenrod", color: "black", border: "none" }}
+            style={{
+              backgroundColor: "goldenrod",
+              color: "black",
+              border: "none",
+            }}
           >
             Save
           </button>
@@ -166,6 +177,4 @@ export const CreateNewClass = () => {
       </div>
     </div>
   );
-  
-  
 };

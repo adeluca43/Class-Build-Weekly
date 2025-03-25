@@ -36,3 +36,8 @@ export const updateEmployee = (id, updatedEmployee) => {
     )
     .then((res) => res.json());
 };
+
+// Fetch all employees for directory page
+export const getAllEmployees = () =>
+    fetch("http://localhost:8088/employees").then((res) => res.json());
+  

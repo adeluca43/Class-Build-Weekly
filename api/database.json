@@ -54,10 +54,10 @@
       "id": 6,
       "name": "Miles Hunt ",
       "address": "234 5th st Spring Hill TN 37174",
-      "phone": "555-123-2222",
+      "phone": "555-123-2227",
       "email": "Hunt@gmail.com",
-      "payRate": 15,
-      "beltRank": "Blue",
+      "payRate": "15",
+      "beltRank": "Purple",
       "password": "pass6"
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "id": 8,
-      "name": "Frank the Tank",
+      "name": "Frankie the Tank",
       "address": "756 3rd st spring hill tn 37174",
       "phone": "444-444-4444",
       "email": "tank@gmail.com",
@@ -77,10 +77,14 @@
       "password": "tank"
     },
     {
-      "email": "new@email.com",
-      "name": "New Person 27",
-      "password": "new",
-      "id": 9
+      "id": 9,
+      "name": "JJ Jones",
+      "address": "444 apple st",
+      "phone": "1231111111",
+      "email": "jj@email.com",
+      "payRate": "15",
+      "beltRank": "Purple",
+      "password": "new"
     },
     {
       "id": 10,
@@ -201,8 +205,8 @@
       "className": "Minis BJJ intros",
       "description": "basic movements and skills",
       "classType": "Kids BJJ",
-      "dayOfWeek": "Friday",
-      "timeSlot": "4:15-4:45 PM",
+      "dayOfWeek": "Monday",
+      "timeSlot": "9:00-10:00 AM",
       "employeeId": 6
     },
     {
@@ -250,7 +254,7 @@
       "className": "Striking 101",
       "description": "fundamental striking class",
       "classType": "Striking",
-      "dayOfWeek": "Wednesday",
+      "dayOfWeek": "Friday",
       "timeSlot": "6:30-7:30 PM",
       "employeeId": 6
     },
@@ -285,7 +289,7 @@
     },
     {
       "className": "Intro to bjj",
-      "description": "womens only fundamental class",
+      "description": "women's only fundamental class",
       "classType": "Women's BJJ",
       "dayOfWeek": "Tuesday",
       "timeSlot": "6:30-7:30 PM",
