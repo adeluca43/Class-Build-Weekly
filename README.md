@@ -1,5 +1,6 @@
 
-Employee Class Tracker
+# Employee Class Tracker
+
 This is a web-based scheduling app built for gym instructors to manage their class responsibilities. Instructors can register, log in, view and edit their profiles, and manage their class schedules. The app provides a visual weekly layout of classes by day, a directory of all employees, and access to uploaded curriculum materials. It helps organize operations for martial arts gyms, fitness studios, or any class-based training business.
 
 TECH STACK: 
@@ -31,9 +32,9 @@ You can log in using any of the preloaded sample users listed below, or create a
 
 Sample Users: 
 Email,	Password
-nicole@gmail.com	pass1
-Tina@gmail.com	pass2
-Will@gmail.com	pass3
+nicole@gmail.com	pass1, 
+Tina@gmail.com	pass2, 
+Will@gmail.com	pass3, 
 Johnny@gmail.com	pass4
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
